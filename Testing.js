@@ -9,7 +9,7 @@ function reverseString(string){
 }
 
 
-//Crie um objeto calculadora que guarda quarto funções  adicionar, subtrair, dividir, multiplicar
+//Crie um objeto calculadora que guarda quatro funções  adicionar, subtrair, dividir, multiplicar
 
 function adicionar(a,b){
      return a + b
@@ -34,25 +34,33 @@ const calculadora = {
 //e(x) = (x + k)  
 //k = posição 
 //x = charactere que queremos mudar
-function caesarCipher(text, s)
-{
-    let result=""
-    for (let i = 0; i < text.length; i++)
-    {
-        let char = text[i];
-        if (char.toUpperCase(text[i]))
-        {
-            let ch =  String.fromCharCode((char.charCodeAt(0) + s-65) % 26 + 65);
-            result += ch;
-        }
-        else
-        {
-            let ch = String.fromCharCode((char.charCodeAt(0) + s-97) % 26 + 97);
-            result += ch;
-        }
-    }
-    return result;
+function caesarCipher(string, posição){
+    //Crie uma variavel alfabeto que possui como valor as letras do alfabeto
+     const alfabeto = "abcdefghijklmnopqrstuvwxyz";
+     const mapa = {};
+     //A variavel resultado receberar a string depois do processo de códificação
+     let resultado = "";
+     for(let i = 0; i<alfabeto.length;i++){
+          //Dentro do objeto mapa passamos cada letra como propriedade e o i como valor, sendo o valor a posição da letra
+          mapa[alfabeto[i]] = i + posição;
+          //Se o valor da letra passar de 25, subtraia seu valor em 26. Isso é necessário, pois quando mudamos o valor de cada letra com o parâmetro posição algumas letras teram um valor superior a 25 e com isso saiem do alfabeto
+          if(mapa[alfabeto[i]] > 25 ){
+               mapa[alfabeto[i]] -= 26;
+          }
+     }
+     // Criamos outro loop que usa o tamanho da string passada para fazer os loops
+     for(let i=0; i< string.length; i++){
+          //Crie a variavel char que possui como valor o primeiro caractere da string e a cada loop avança um caractere
+          let char = string[i];
+          //Se o caractere não for um espaço faça o seguinte: Concatene á variavel resultado ao caractere do alfabeto que possui como index uma propriedade do objeto mapa com valor igual a string. Fazemos com que o valor mude usando como index do parâmetro string a variavel i do loop for
+          if(char !== " "){
+               resultado += alfabeto[mapa[string[i]]];
+          }
+     }
+     //Por fim retornamos a variavel resultado que agora tem como valor a string códificada
+     return resultado
 }
+console.log(caesarCipher('abc', 2))
 
 //Crie uma função analyzeArray que recebe uma array de números e retorna um objeto com as propriedades  meio, min, max, tamanho
 
@@ -71,7 +79,6 @@ function analyzeArray(array){
     return propriedades
     
 }
-console.log(analyzeArray([1,8,3,4,2,6]))
 
 module.exports = capitalized
 module.exports = reverseString
