@@ -33,11 +33,11 @@ const analyzeArray = require('./Testing')
 //     expect(caesarCipher('abc',2)).toBe('cde');
 // });
 
-test('Retorne as propriedades meio, min, max e largura', ()=>{{
+test('Retorne as propriedades meio, min, max e length', ()=>{
     expect(analyzeArray([1,8,3,4,2,6])).toEqual({
         meio: 3,
         min:1,
         max:8,
         length:6
     })
-}})
+})

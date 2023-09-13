@@ -62,18 +62,15 @@ function caesarCipher(string, posição){
 }
 
 
-//Crie uma função analyzeArray que recebe uma array de números e retorna um objeto com as propriedades  meio, min, max, tamanho
+//Crie uma função analyzeArray que recebe uma array de números e retorna um objeto com as propriedades meio, min, max e length
 
 function analyzeArray(array){
     let sorted = array.sort(function(a,b){return a-b})
-    let meio = sorted.length/2
-    let min = sorted[0]
-    let max = sorted[sorted.length-1]
     
     let propriedades = {
-      meio: meio,
-      min:min,
-      max:max,
+      meio: sorted.length/2,
+      min:sorted[0],
+      max:sorted[sorted.length-1],
       length:sorted.length
     }
     return propriedades
