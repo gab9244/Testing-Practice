@@ -29,8 +29,8 @@ const analyzeArray = require('./Testing')
 //     expect(calculadora.multiplicar(2,1)).toBe(2);
 // });
 
-// test('Faça com que ABC seja BCD', ()=>{
-//     expect(caesarCipher('ABC',1)).toBe('BCD');
+// test('Faça com que abc seja cde', ()=>{
+//     expect(caesarCipher('abc',2)).toBe('cde');
 // });
 
 test('Retorne as propriedades meio, min, max e largura', ()=>{{

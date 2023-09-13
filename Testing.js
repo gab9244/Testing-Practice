@@ -30,7 +30,7 @@ const calculadora = {
      dividir,
      multiplicar,
 }
-//Crie um função que representa a criptocrafia de ceasar. A criptocrafia de ceasar consiste em mudar uma letra um certa quantidade de vezes. Ex: a muda 4 vezes = d
+//Crie uma função que representa a criptocrafia de Caesar. A criptocrafia de Caesar consiste em mudar uma letra uma certa quantidade de vezes. Ex: a muda 4 vezes = e
 //e(x) = (x + k)  
 //k = posição 
 //x = charactere que queremos mudar
@@ -41,9 +41,9 @@ function caesarCipher(string, posição){
      //A variavel resultado receberar a string depois do processo de códificação
      let resultado = "";
      for(let i = 0; i<alfabeto.length;i++){
-          //Dentro do objeto mapa passamos cada letra como propriedade e o i como valor, sendo o valor a posição da letra
+          //Dentro do objeto mapa passamos cada letra como propriedades e o i como valor, sendo o valor a posição da letra e fazemos com que o valor das letras mude dependendo da posição(O parâmetro) informada, assim mudamos a posição/valor das letras
           mapa[alfabeto[i]] = i + posição;
-          //Se o valor da letra passar de 25, subtraia seu valor em 26. Isso é necessário, pois quando mudamos o valor de cada letra com o parâmetro posição algumas letras teram um valor superior a 25 e com isso saiem do alfabeto
+          //Se o valor da letra passar de 25, subtraia seu valor em 26. Isso é necessário, pois quando mudamos o valor de cada letra com o parâmetro posição, algumas letras terâo um valor superior a 25 e com isso sairão do alfabeto
           if(mapa[alfabeto[i]] > 25 ){
                mapa[alfabeto[i]] -= 26;
           }
@@ -52,7 +52,7 @@ function caesarCipher(string, posição){
      for(let i=0; i< string.length; i++){
           //Crie a variavel char que possui como valor o primeiro caractere da string e a cada loop avança um caractere
           let char = string[i];
-          //Se o caractere não for um espaço faça o seguinte: Concatene á variavel resultado ao caractere do alfabeto que possui como index uma propriedade do objeto mapa com valor igual a string. Fazemos com que o valor mude usando como index do parâmetro string a variavel i do loop for
+          //Se o caractere não for um espaço faça o seguinte: Concatene á variavel resultado ao caractere do alfabeto que possui como index uma propriedade do objeto mapa igual ao caractere do parâmetro string. Fazemos com que o valor mude usando como index do parâmetro string a variavel i do loop for
           if(char !== " "){
                resultado += alfabeto[mapa[string[i]]];
           }
@@ -60,7 +60,7 @@ function caesarCipher(string, posição){
      //Por fim retornamos a variavel resultado que agora tem como valor a string códificada
      return resultado
 }
-console.log(caesarCipher('abc', 2))
+
 
 //Crie uma função analyzeArray que recebe uma array de números e retorna um objeto com as propriedades  meio, min, max, tamanho
 
